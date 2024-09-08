@@ -2,11 +2,15 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\Post;
+use App\Http\Controllers\TagController;
 Route::get('/', function () {
     return view('index', [
         'posts' => Post::paginate(9),
     ]);
 });
+
+Route::get('/tags/{tag:name}', TagController::class);
+
 Route::get('/posts/{post}', function (Post $post) {
     $comments = $post->comments;
     return view('post', [
