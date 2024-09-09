@@ -4,6 +4,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Post;
 use App\Http\Controllers\TagController;
+use App\Http\Controllers\PostController;
+
 
 
 route::get('/', function () {
@@ -25,17 +27,7 @@ Route::get('/posts', function () {
         'posts' => Post::latest()->paginate(9),
     ]);
 })->middleware(['auth', 'verified'])->name("index");
-Route::post('/posts', function () {
-    request()->validate([
-        'title' => 'required',
-        'content' => 'required',
-    ]);
-    auth()->user()->posts()->create([
-        'title' => request('title'),
-        'content' => request('content'),
-    ]);
-    return redirect('/posts');
-})->middleware('auth');
+Route::post('/posts',[PostController::class,"store"])->middleware('auth');
 
 
 Route::get('/tags/{tag:name}', TagController::class);
