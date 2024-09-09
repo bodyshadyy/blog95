@@ -1,5 +1,6 @@
 <x-app-layout>
-<div class="container mx-auto">
+<div class="container mx-auto  max-w-7xl px-6 lg:px-8">
+    <div class="">
 <form action="/posts" method="post" class="mt-4">
     @csrf
     <input type="text" name="title" class="w-full p-4 border border-gray-300 rounded-lg" placeholder="Title">
@@ -10,5 +11,6 @@
     
     <button class="bg-blue-500 text-white px-4 py-2 mt-2">Add Post</button>
 </form>
+</div>
 </div>
 </x-app-layout>

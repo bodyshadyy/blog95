@@ -17,10 +17,14 @@
 </form>
 
         <div class="mt-5 bg-white py-5 sm:py-1">
-        <h1 class="text-3xl font-bold mt-4">Latest Posts</h1>
-        <button class="bg-blue-500 text-white px-4 py-2 mt-2"><a href="/posts/create">Add Post</a></button> 
+       
             <div class="mx-auto max-w-7xl px-6 lg:px-8">
-                
+            <div class="flex justify-between items-center mt-4">
+    <h1 class="text-3xl font-bold">Latest Posts</h1>
+    <a href="/posts/create">
+        <button class="bg-blue-500 text-white px-4 py-2">Add Post</button>
+    </a>
+</div>
                 <div class="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:mt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
                     @foreach ($posts as $post)
                         <x-post :post="$post"></x-post>                       <!-- 

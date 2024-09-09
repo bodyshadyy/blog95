@@ -22,11 +22,7 @@ Route::get('search', function () {    $post = Post::query()
 
 return view('results', ['posts' => $post]);});
 
-Route::get('/posts', function () {
-    return view('index', [
-        'posts' => Post::latest()->paginate(9),
-    ]);
-})->middleware(['auth', 'verified'])->name("index");
+Route::get('/posts', [PostController::class,"index"])->middleware(['auth', 'verified'])->name("index");
 Route::post('/posts',[PostController::class,"store"])->middleware('auth');
 
 
