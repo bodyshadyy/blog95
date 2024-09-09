@@ -9,6 +9,10 @@ use App\Http\Controllers\TagController;
 route::get('/', function () {
     return view('welcome');
 });
+Route::get('posts/create', function () {
+    return view('create');
+})->middleware('auth');
+
 Route::get('search', function () {    $post = Post::query()
     ->with([ 'tags'])
     ->where('title', 'LIKE', '%'.request('q').'%')
