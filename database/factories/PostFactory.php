@@ -21,6 +21,7 @@ class PostFactory extends Factory
             'title' => fake()->sentence,
             'user_id' => User::factory(),
             'content' => fake()->paragraph,
+            "photo" => fake()->imageUrl(),
         ];
     }
 }

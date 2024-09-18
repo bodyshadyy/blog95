@@ -1,6 +1,8 @@
 <x-app-layout>
     <div class="container mx-auto">
         
+
+        <img src="{{ asset($post->photo) }}" alt="Banner Image" class="w-full mt-4 max-h-96">
         <h1 class="text-3xl font-bold mt-4">{{ $post->title }}</h1>
         <p class="text-sm mt-2">By {{ $post->user->name }}</p>
         <p>{{ $post->content }}</p>
@@ -19,5 +21,5 @@
             </div>
         @endforeach
     </div>
-    </div>
+    
 </x-app-layout>
