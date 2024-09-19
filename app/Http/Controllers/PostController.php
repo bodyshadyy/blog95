@@ -6,6 +6,7 @@ use App\Models\Tag;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules\File ;
+use App\Models\User;
 
 class PostController extends Controller
 {
@@ -99,6 +100,12 @@ class PostController extends Controller
     {
         //
     }
+    public function userPosts(User $user)
+{
+    $posts = $user->posts()->latest()->get();
+
+    return view('results', compact('user', 'posts'));
+}
 
     /**
      * Remove the specified resource from storage.

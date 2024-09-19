@@ -19,7 +19,7 @@
     <div class="relative mt-8 flex items-center gap-x-4">
         <div class="text-sm leading-6">
             <p class="font-semibold text-gray-900">
-                <a href="#" class="flex items-center">
+                <a href="{{ route('user.posts', $post->user) }}" class="flex items-center">
                     <img src="{{ asset($post->user->pfp) }}" alt="Profile Picture" class="w-10 h-10 rounded-full mr-2">
                     {{ $post->user->name }}
                 </a>

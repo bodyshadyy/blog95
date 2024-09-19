@@ -48,4 +48,8 @@ protected function casts(): array
     {
         return $this->hasMany(Post::class);
     }
+    public function isAdmin()
+    {
+        return $this->role === 'admin';
+    }
 }

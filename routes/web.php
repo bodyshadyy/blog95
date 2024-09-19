@@ -5,9 +5,11 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Post;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\AdminRequestController;
+Route::get('/admin/request', [AdminRequestController::class, 'create'])->name('admin.request');
+Route::post('/admin/request', [AdminRequestController::class, 'store']);
 
-
-
+Route::get('/user/{user}/posts', [PostController::class, 'userPosts'])->name('user.posts');
 route::get('/', function () {
     return view('welcome');
 });
